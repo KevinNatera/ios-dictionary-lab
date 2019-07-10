@@ -18,7 +18,7 @@ citiesDict["Dominican Republic"] = "Santo Domingo"
 
 citiesDict["Mexico"] = "Ciudad de  México"
 citiesDict["USA"] = "Washington Distrito de Columbia"
-citiesDict["Dominican Republic"] = "Holy Sunday"
+citiesDict["Dominican Republic"] = "Saint Dominic"
 
 
 ## Question 2
