@@ -11,6 +11,15 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 - Translate at least 3 of the capital names into another language.
 
+var citiesDict = ["Japan":"Tokyo","South Korea":"Seoul","USA":"Washington D.C"]
+
+citiesDict["Mexico"] = "Mexico City"
+citiesDict["Dominican Republic"] = "Santo Domingo"
+
+citiesDict["Mexico"] = "Ciudad de  México"
+citiesDict["USA"] = "Washington Distrito de Columbia"
+citiesDict["Dominican Republic"] = "Holy Sunday"
+
 
 ## Question 2
 
@@ -27,6 +36,48 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 - Remove the new keys made in the previous two steps
 
 - Add 2 to every value inside of `someDict`.
+
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+//a
+
+var sum = someDict["Three"]! + someDict["Five"]!
+
+print(sum)
+
+//b
+
+someDict["Six"] = 10
+someDict["Seven"] = 17
+
+//c
+someDict["productUpToSeven"] = someDict["One"]! * someDict["Two"]! * someDict["Three"]! * someDict["Four"]! * someDict["Five"]! * someDict["Six"]! *
+someDict["Seven"]!
+
+print(someDict["productUpToSeven"]!)
+
+//d
+
+someDict["sumUpToSix"] = someDict["One"]! + someDict["Two"]! + someDict["Three"]! + someDict["Four"]! + someDict["Five"]! + someDict["Six"]!
+
+print(someDict["sumUpToSix"]!)
+
+//e
+
+someDict["productUpToSeven"] = nil
+someDict["sumUpToSix"] = nil
+
+print(someDict)
+
+//f
+
+someDict["One"]  = 3
+someDict["Two"]  = 6
+someDict["Three"]  = 11
+someDict["Four"]  = 18
+someDict["Five"] = 27
+
+print(someDict)
 
 
 ## Question 3
@@ -51,6 +102,30 @@ Using the dictionary created in the previous problem, do the following:
 
 - Use a for-loop to iterate through the dictionary you created at the beginning of the problem, and print out the content in the form of key: value, one entry per line.
 
+
+var authorDict: Dictionary = ["Mark Twain": 8.9, "Nathaniel Hawthorne": 5.1, "John Steinbeck": 2.3, "C.S. Lewis": 9.9, "Jon Krakauer": 6.1 ]
+
+//a
+
+print(authorDict["John Steinbeck"]!)
+
+//b
+
+authorDict["Erik Larson"] = 9.2
+
+//c
+
+if authorDict["Jon Krakauer"]! > authorDict["Mark Twain"]! {
+print("John Krakaur")
+} else {
+print("Mark Twain")
+}
+
+//d
+
+for (key, value) in authorDict{
+print("\(key) " + ": " + "\(value)")
+}
 
 ## Question 4
 
@@ -87,6 +162,40 @@ var code = [
 ]
 
 var message = "hello world"
+
+//a
+
+//var codedMessage = ""
+//
+//for char in message {
+//    for (decoded,encrypted) in code {
+//        if String(char) == decoded {
+//            codedMessage.append(encrypted)
+//
+//        } else if String(char) == " " {
+//            codedMessage.append(" ")
+//            break
+//        }
+//    }
+//}
+//
+//print(codedMessage)
+
+//b
+
+var decodedMessage = ""
+
+for char in encodedMessage {
+if char == " " {
+decodedMessage.append(" ")
+}
+for (key, value) in code {
+if String(char) == value {
+decodedMessage.append(key)
+}
+}
+}
+print(decodedMessage)
 ```
 
 You are also given an `encodedMessage` which contains only lowercase letters and spaces. Use the `code` dictionary to decode the message and print it.
@@ -124,6 +233,31 @@ var people: [[String:String]] = [
 
 Now, create an array of strings called `fullNames` that contains the values for `“firstName”` and `“lastName”` from the dictionary separated by a space.
 
+//a
+
+
+//var firstNameArray: [String] = []
+//
+//var fullNameArray: [String] = []
+//
+//for person in people {
+//    for (k,v) in person {
+//        if k == "firstName"{
+//            firstNameArray += [v]
+//        }
+//    }
+//}
+//print(firstNameArray)
+//
+////b
+//
+//
+//for person in people {
+//    fullNameArray.append("\(person["firstName"]!)" + " " + "\(person["lastName"]!)")
+//}
+//
+//print(fullNameArray)
+
 
 ## Question 6
 
@@ -157,9 +291,39 @@ var peopleWithScores: [[String: String]] = [
         "score": "16"
     ]
 ]
+
+
+
 ```
 
 Print out the dictionary above in the following format:  **full name - score**
+
+//a
+
+var score = 0
+
+for person in peopleWithScores {
+for (k,v) in person {
+if k == "score" {
+if Int(v)! > score {
+score = Int(v)!
+}
+}
+}
+}
+
+//b
+
+print(score)
+
+var fullNamePlusScores = ""
+
+for person in peopleWithScores {
+fullNamePlusScores.append("\(person["firstName"]!)" + " " + "\(person["lastName"]!)" + " - " + "\(person["score"]!)  " )
+}
+
+print(fullNamePlusScores)
+
 
 
 ## Question 7
@@ -170,6 +334,60 @@ You are given an array of integers. The frequency of a number is the number of t
 
 Print the numbers in ascending order followed by their frequency.
 
+var numbers = [1, 2, 3, 2, 3, 5, 2, 1, 3, 4, 2, 2, 2]
+var frequency = 0
+
+
+for number in numbers {
+if number == 1 {
+frequency += 1
+}
+}
+
+print("1" + ":" + "\(frequency)")
+
+frequency = 0
+
+for number in numbers {
+if number == 2 {
+frequency += 1
+}
+}
+
+print("2" + ":" + "\(frequency)")
+
+frequency = 0
+
+
+for number in numbers {
+if number == 3 {
+frequency += 1
+}
+}
+
+print("3" + ":" + "\(frequency)")
+
+frequency = 0
+
+for number in numbers {
+if number == 4 {
+frequency += 1
+}
+}
+
+print("4" + ":" + "\(frequency)")
+
+frequency = 0
+
+for number in numbers {
+if number == 5 {
+frequency += 1
+}
+}
+
+print("5" + ":" + "\(frequency)")
+
+frequency = 0
 
 ## Question 8
 
@@ -182,6 +400,14 @@ Print the most common letter in the string below:
 
 Write code that creates a dictionary where the keys are Ints between 0 and 20 inclusive, and each key's value is its cube.
 
+var dictionary: [Int:Int] = [:]
+
+for i in 0...20 {
+dictionary[i] = i*i*i
+}
+
+print(dictionary)
+
 
 ## Question 10
 
@@ -191,7 +417,17 @@ Write code that iterates through `testStates` and prints out whether or not that
 let statePop = ["Alabama": 4.8, "Alaska": 0.7, "Arizona": 6.7, "Arkansas": 3.0]
 let testStates = ["California","Arizona", "Alabama", "New Mexico"]
 ```
+let statePop = ["Alabama": 4.8, "Alaska": 0.7, "Arizona": 6.7, "Arkansas": 3.0]
+let testStates = ["California","Arizona", "Alabama", "New Mexico"]
 
+
+for state in testStates {
+if statePop.keys.contains(state) {
+print("\(state) is in statePop")
+} else { 
+print("\(state) is not in statePop")
+}
+}
 
 ## Question 11
 
@@ -211,6 +447,27 @@ var deposits: [String: [Double]] = [
  "Clark" : [555.23, 45.67, 99.95, 80.76, 56.99, 46.50, 265.70],
  "Johnson" : [12.56, 300.00, 640.50, 255.60, 26.88]
 ]
+
+//a
+var mostMoney = 0.0
+var person = ""
+
+for (key,value) in deposits {
+var total: Double = 0.0
+
+for i in value {
+total += i
+}
+
+if total > mostMoney {
+mostMoney = total
+person = key
+}
+}
+
+print("\(person) has the most money: \(mostMoney)")
+
+
 ```
 
 
